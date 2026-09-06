@@ -50,7 +50,10 @@ else
 fi
 
 #cleanup
+apt-get autoremove -y
 if [ "${BASE_APT_CLEAN}" = "yes" ]; then
     apt-get clean
 fi
-apt-get autoremove -y
+
+dd if=/dev/zero of=/zeroes bs=1M || true
+rm -f /zeroes
